@@ -8,6 +8,27 @@ This is a small static website made with plain HTML, CSS, and JavaScript. It doe
 - `styles.css` - responsive design and styling
 - `script.js` - small dynamic behavior
 - `hero-website.png` - hero image
+- `login.html` - login page for AWS Cognito
+- `auth.js` - redirects users to Cognito Hosted UI
+- `aws-config.js` - Cognito settings to fill after AWS setup
+
+## Login, Google Sign-In, Password Reset, And Database
+
+Use AWS Amplify Hosting with Amazon Cognito and DynamoDB.
+
+Recommended setup:
+
+1. Host this repo in AWS Amplify Hosting.
+2. Create an Amazon Cognito user pool.
+3. Add Google as an identity provider in Cognito.
+4. Enable the Cognito Hosted UI.
+5. Add these callback and sign-out URLs in Cognito:
+   - `https://YOUR-AMPLIFY-DOMAIN/login.html`
+   - `http://localhost:8000/login.html` for local testing
+6. Copy your Cognito hosted UI domain and app client ID into `aws-config.js`.
+7. Use DynamoDB for app data. Do not connect the browser directly to DynamoDB; use AWS Amplify Data, API Gateway + Lambda, or AppSync.
+
+The forgot-password button uses Cognito Hosted UI. Cognito sends the reset code/email and lets the user create a new password.
 
 ## Host On AWS S3
 

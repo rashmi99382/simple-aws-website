@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Login to SimpleSite with AWS Cognito and Google.">
+    <title>Login | Simple AWS Website</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="auth-body">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Simple AWS Website home">
+        <span class="brand-mark">S</span>
+        <span>SimpleSite</span>
+      </a>
+
+      <nav class="nav" aria-label="Main navigation">
+        <a href="index.html#features">Features</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main class="auth-main">
+      <section class="auth-card" aria-labelledby="login-title">
+        <div>
+          <p class="eyebrow">User login</p>
+          <h1 id="login-title">Sign in to continue.</h1>
+          <p class="auth-copy">
+            Use Google login through AWS Cognito. Password recovery is handled securely by AWS.
+          </p>
+        </div>
+
+        <div class="auth-actions">
+          <button class="button google-button" type="button" id="google-login">
+            <span class="google-mark" aria-hidden="true">G</span>
+            Continue with Google
+          </button>
+          <button class="button primary full-width" type="button" id="email-login">
+            Login with email
+          </button>
+          <button class="link-button" type="button" id="forgot-password">
+            Forgot password?
+          </button>
+        </div>
+
+        <p class="auth-note" id="auth-message" role="status">
+          Add your AWS Cognito settings in <code>aws-config.js</code> to enable live login.
+        </p>
+      </section>
+    </main>
+
+    <script src="aws-config.js"></script>
+    <script src="auth.js"></script>
+  </body>
+</html>
