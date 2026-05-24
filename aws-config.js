@@ -1,8 +1,8 @@
 window.awsAuthConfig = {
-  cognitoDomain: "",
-  clientId: "",
-  redirectUri: "https://YOUR-AMPLIFY-DOMAIN/login.html",
-  logoutUri: "https://YOUR-AMPLIFY-DOMAIN/login.html",
+  cognitoDomain: "https://us-east-13azzhoudv.auth.us-east-1.amazoncognito.com",
+  clientId: "5drphon0ubhron2hpamektglo4",
+  redirectUri: "https://main.d2ibjl439cyfnq.amplifyapp.com/login.html",
+  logoutUri: "https://main.d2ibjl439cyfnq.amplifyapp.com/login.html",
   responseType: "code",
-  scope: "openid email profile"
+  scope: "email openid phone"
 };
