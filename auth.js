@@ -1,3 +1,5 @@
+import { awsAuthConfig } from "./aws-config.js";
+
 const authMessage = document.querySelector("#auth-message");
 const googleLoginButton = document.querySelector("#google-login");
 const emailLoginButton = document.querySelector("#email-login");
@@ -25,7 +27,7 @@ async function sha256(value) {
 }
 
 function buildCognitoUrl(path, extraParams = {}) {
-  const config = window.awsAuthConfig || {};
+  const config = awsAuthConfig || {};
 
   if (!config.cognitoDomain || !config.clientId || !config.redirectUri) {
     return "";
@@ -74,7 +76,7 @@ function parseJwt(token) {
 }
 
 async function exchangeCodeForTokens(code) {
-  const config = window.awsAuthConfig || {};
+  const config = awsAuthConfig || {};
   const verifier = sessionStorage.getItem(verifierKey);
 
   if (!verifier) {

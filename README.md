@@ -35,6 +35,35 @@ The forgot-password button uses Cognito Hosted UI. Cognito sends the reset code/
 
 After a successful login, the browser stores the Cognito tokens locally and opens `dashboard.html`. The dashboard can show profile values from the ID token, including a Google profile image when Google sign-in is configured.
 
+## Add S3 Storage With Amplify
+
+This repo includes an Amplify Gen 2 backend in `amplify/`.
+
+Local setup:
+
+```bash
+npm install
+npm run sandbox
+```
+
+The storage rule in `amplify/storage/resource.ts` gives each authenticated user access to their own folder:
+
+```text
+profile-pictures/{entity_id}/*
+```
+
+For Amplify Hosting, set the build command to:
+
+```bash
+npm run build
+```
+
+And set the output directory to:
+
+```text
+dist
+```
+
 ## Host On AWS S3
 
 1. Create an S3 bucket.

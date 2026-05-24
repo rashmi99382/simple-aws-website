@@ -1,3 +1,5 @@
+import { awsAuthConfig } from "./aws-config.js";
+
 const tokenKey = "simplesite_auth_tokens";
 const pictureKey = "simplesite_user_pictures";
 
@@ -62,7 +64,7 @@ document.querySelector("#picture-input")?.addEventListener("change", async (even
 });
 
 document.querySelector("#logout-button")?.addEventListener("click", () => {
-  const config = window.awsAuthConfig || {};
+  const config = awsAuthConfig || {};
   localStorage.removeItem(tokenKey);
 
   if (config.cognitoDomain && config.clientId && config.logoutUri) {

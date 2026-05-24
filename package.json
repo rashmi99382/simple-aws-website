@@ -1,0 +1,17 @@
+{
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "sandbox": "ampx sandbox"
+  },
+  "dependencies": {
+    "aws-amplify": "^6.17.0"
+  },
+  "devDependencies": {
+    "@aws-amplify/backend": "^1.22.0",
+    "@aws-amplify/backend-cli": "^1.8.2",
+    "typescript": "^5.9.3",
+    "vite": "^8.0.14"
+  }
+}
