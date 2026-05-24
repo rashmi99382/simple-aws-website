@@ -77,6 +77,19 @@ a {
   color: var(--primary);
 }
 
+.nav-button {
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 600;
+}
+
+.nav-button:hover {
+  color: var(--primary);
+}
+
 main {
   width: min(1120px, calc(100% - 40px));
   margin: 0 auto;
@@ -413,6 +426,104 @@ code {
   font-size: 0.92em;
 }
 
+.dashboard-main {
+  display: grid;
+  gap: 24px;
+  padding: 48px 0 76px;
+}
+
+.profile-panel,
+.upload-panel {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.profile-panel {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: clamp(24px, 4vw, 38px);
+}
+
+.profile-avatar {
+  display: grid;
+  flex: 0 0 auto;
+  width: 92px;
+  height: 92px;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--primary);
+  background-position: center;
+  background-size: cover;
+  color: #ffffff;
+  font-size: 2.5rem;
+  font-weight: 800;
+}
+
+.profile-panel h1 {
+  font-size: clamp(2.2rem, 5vw, 4.5rem);
+}
+
+.profile-email {
+  margin: 12px 0 0;
+  color: var(--muted);
+}
+
+.upload-panel {
+  display: grid;
+  gap: 24px;
+  padding: clamp(24px, 4vw, 38px);
+}
+
+.upload-panel p {
+  max-width: 760px;
+  margin: 14px 0 0;
+  color: var(--muted);
+}
+
+.upload-box {
+  display: grid;
+  min-height: 120px;
+  place-items: center;
+  border: 2px dashed var(--line);
+  border-radius: 8px;
+  background: #fbfcfe;
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.upload-box:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.upload-box input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+
+.picture-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 14px;
+}
+
+.picture-grid img {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.empty-state {
+  grid-column: 1 / -1;
+}
+
 @media (max-width: 760px) {
   .site-header,
   .site-footer,
@@ -440,5 +551,10 @@ code {
 
   .price-box {
     width: 100%;
+  }
+
+  .profile-panel {
+    align-items: flex-start;
+    flex-direction: column;
   }
 }

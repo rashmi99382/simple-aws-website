@@ -11,6 +11,8 @@ This is a small static website made with plain HTML, CSS, and JavaScript. It doe
 - `login.html` - login page for AWS Cognito
 - `auth.js` - redirects users to Cognito Hosted UI
 - `aws-config.js` - Cognito settings to fill after AWS setup
+- `dashboard.html` - signed-in user profile and picture page
+- `dashboard.js` - profile display, logout, and local picture preview
 
 ## Login, Google Sign-In, Password Reset, And Database
 
@@ -27,8 +29,11 @@ Recommended setup:
    - `http://localhost:8000/login.html` for local testing
 6. Copy your Cognito hosted UI domain and app client ID into `aws-config.js`.
 7. Use DynamoDB for app data. Do not connect the browser directly to DynamoDB; use AWS Amplify Data, API Gateway + Lambda, or AppSync.
+8. Use S3 for user picture storage. Do not upload directly to a public bucket; use Amplify Storage or generate pre-signed upload URLs from Lambda.
 
 The forgot-password button uses Cognito Hosted UI. Cognito sends the reset code/email and lets the user create a new password.
+
+After a successful login, the browser stores the Cognito tokens locally and opens `dashboard.html`. The dashboard can show profile values from the ID token, including a Google profile image when Google sign-in is configured.
 
 ## Host On AWS S3
 

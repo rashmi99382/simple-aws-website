@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="SimpleSite user dashboard.">
+    <title>Dashboard | Simple AWS Website</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Simple AWS Website home">
+        <span class="brand-mark">S</span>
+        <span>SimpleSite</span>
+      </a>
+
+      <nav class="nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <button class="nav-button" type="button" id="logout-button">Logout</button>
+      </nav>
+    </header>
+
+    <main class="dashboard-main">
+      <section class="profile-panel">
+        <div class="profile-avatar" id="profile-avatar" aria-hidden="true">U</div>
+        <div>
+          <p class="eyebrow">Signed in</p>
+          <h1 id="profile-name">User profile</h1>
+          <p class="profile-email" id="profile-email">Loading account details...</p>
+        </div>
+      </section>
+
+      <section class="upload-panel" aria-labelledby="upload-title">
+        <div>
+          <p class="eyebrow">Pictures</p>
+          <h2 id="upload-title">Store user pictures.</h2>
+          <p>
+            This preview saves selected pictures in this browser. For real AWS storage,
+            connect this page to S3 using Amplify Storage or an API Gateway + Lambda upload endpoint.
+          </p>
+        </div>
+
+        <label class="upload-box">
+          <input id="picture-input" type="file" accept="image/*" multiple>
+          <span>Choose pictures</span>
+        </label>
+
+        <div class="picture-grid" id="picture-grid" aria-live="polite"></div>
+      </section>
+    </main>
+
+    <script src="aws-config.js"></script>
+    <script src="dashboard.js"></script>
+  </body>
+</html>
