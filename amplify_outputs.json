@@ -1,0 +1,50 @@
+{
+  "auth": {
+    "user_pool_id": "us-east-1_Qjj0OvZXd",
+    "aws_region": "us-east-1",
+    "user_pool_client_id": "76neubj6mou9084i2ntcmircs1",
+    "identity_pool_id": "us-east-1:bac7ea7f-6821-4c72-b58b-b09c0c75bdbd",
+    "mfa_methods": [],
+    "standard_required_attributes": [
+      "email"
+    ],
+    "username_attributes": [
+      "email"
+    ],
+    "user_verification_types": [
+      "email"
+    ],
+    "groups": [],
+    "mfa_configuration": "NONE",
+    "password_policy": {
+      "min_length": 8,
+      "require_lowercase": true,
+      "require_numbers": true,
+      "require_symbols": true,
+      "require_uppercase": true
+    },
+    "unauthenticated_identities_enabled": true
+  },
+  "storage": {
+    "aws_region": "us-east-1",
+    "bucket_name": "amplify-simpleawswebsite--userpicturesbucket9b84ac-zcsct81pzmrb",
+    "buckets": [
+      {
+        "name": "userPictures",
+        "bucket_name": "amplify-simpleawswebsite--userpicturesbucket9b84ac-zcsct81pzmrb",
+        "aws_region": "us-east-1",
+        "paths": {
+          "profile-pictures/${cognito-identity.amazonaws.com:sub}/*": {
+            "entityidentity": [
+              "get",
+              "list",
+              "write",
+              "delete"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "version": "1.4"
+}

@@ -52,6 +52,8 @@ The storage rule in `amplify/storage/resource.ts` gives each authenticated user 
 profile-pictures/{entity_id}/*
 ```
 
+When sandbox is running, it writes `amplify_outputs.json`. The dashboard imports that file and uses Amplify Storage to upload pictures to S3.
+
 For Amplify Hosting, set the build command to:
 
 ```bash
