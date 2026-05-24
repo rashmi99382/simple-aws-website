@@ -33,7 +33,7 @@ Recommended setup:
 
 The forgot-password button uses Cognito Hosted UI. Cognito sends the reset code/email and lets the user create a new password.
 
-After a successful login, the browser stores the Cognito tokens locally and opens `dashboard.html`. The dashboard can show profile values from the ID token, including a Google profile image when Google sign-in is configured.
+After a successful login, the user opens `dashboard.html`. The dashboard shows the user's personal record and uploads pictures to S3 with Amplify Storage.
 
 ## Add S3 Storage With Amplify
 

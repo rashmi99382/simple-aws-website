@@ -28,27 +28,39 @@
       <section class="auth-card" aria-labelledby="login-title">
         <div>
           <p class="eyebrow">User login</p>
-          <h1 id="login-title">Sign in to continue.</h1>
+          <h1 id="login-title">Your personal account.</h1>
           <p class="auth-copy">
-            Use Google login through AWS Cognito. Password recovery is handled securely by AWS.
+            Sign in to open your personal record page and upload pictures securely to AWS S3.
           </p>
         </div>
 
-        <div class="auth-actions">
-          <button class="button google-button" type="button" id="google-login">
-            <span class="google-mark" aria-hidden="true">G</span>
-            Continue with Google
+        <form class="auth-actions" id="auth-form">
+          <label class="field-label">
+            Email
+            <input class="text-field" id="email" type="email" autocomplete="email" required>
+          </label>
+          <label class="field-label">
+            Password
+            <input class="text-field" id="password" type="password" autocomplete="current-password">
+          </label>
+          <label class="field-label hidden" id="code-field">
+            Code
+            <input class="text-field" id="code" type="text" inputmode="numeric" autocomplete="one-time-code">
+          </label>
+
+          <button class="button primary full-width" type="submit" id="submit-button">
+            Login
           </button>
-          <button class="button primary full-width" type="button" id="email-login">
-            Login with email
-          </button>
-          <button class="link-button" type="button" id="forgot-password">
-            Forgot password?
-          </button>
-        </div>
+          <div class="auth-links">
+            <button class="link-button" type="button" data-mode="signup">Create account</button>
+            <button class="link-button" type="button" data-mode="confirm">Confirm account</button>
+            <button class="link-button" type="button" data-mode="forgot">Forgot password?</button>
+            <button class="link-button hidden" type="button" data-mode="login" id="back-login">Back to login</button>
+          </div>
+        </form>
 
         <p class="auth-note" id="auth-message" role="status">
-          Add your AWS Cognito settings in <code>aws-config.js</code> to enable live login.
+          Login opens your dashboard. New users can create an account and confirm with the email code.
         </p>
       </section>
     </main>

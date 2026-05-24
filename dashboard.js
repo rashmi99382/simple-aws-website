@@ -1,33 +1,26 @@
 import { Amplify } from "aws-amplify";
-import { fetchAuthSession, getCurrentUser, signOut } from "aws-amplify/auth";
+import { fetchAuthSession, fetchUserAttributes, getCurrentUser, signOut } from "aws-amplify/auth";
 import { getUrl, list, uploadData } from "aws-amplify/storage";
 import outputs from "./amplify_outputs.json";
 
 Amplify.configure(outputs);
 
-const tokenKey = "simplesite_auth_tokens";
-
-const storedSession = localStorage.getItem(tokenKey);
-
-if (!storedSession) {
-  window.location.href = "login.html";
-}
-
-const session = storedSession ? JSON.parse(storedSession) : {};
-const profile = session.profile || {};
-const displayName = profile.name || profile.given_name || profile.email || "User";
-const email = profile.email || "Email not available";
 const avatar = document.querySelector("#profile-avatar");
 const pictureGrid = document.querySelector("#picture-grid");
 
-document.querySelector("#profile-name").textContent = displayName;
-document.querySelector("#profile-email").textContent = email;
+async function loadProfile() {
+  try {
+    const user = await getCurrentUser();
+    const attributes = await fetchUserAttributes();
+    const displayName = attributes.name || attributes.email || user.username || "User";
+    const email = attributes.email || "Email not available";
 
-if (profile.picture) {
-  avatar.style.backgroundImage = `url("${profile.picture}")`;
-  avatar.textContent = "";
-} else {
-  avatar.textContent = displayName.slice(0, 1).toUpperCase();
+    document.querySelector("#profile-name").textContent = displayName;
+    document.querySelector("#profile-email").textContent = email;
+    avatar.textContent = displayName.slice(0, 1).toUpperCase();
+  } catch (error) {
+    window.location.href = "login.html";
+  }
 }
 
 async function renderPictures() {
@@ -86,10 +79,10 @@ document.querySelector("#picture-input")?.addEventListener("change", async (even
 });
 
 document.querySelector("#logout-button")?.addEventListener("click", () => {
-  localStorage.removeItem(tokenKey);
   signOut().finally(() => {
     window.location.href = "login.html";
   });
 });
 
+loadProfile();
 renderPictures();
