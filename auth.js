@@ -59,6 +59,7 @@ authForm?.addEventListener("submit", async (event) => {
       }
       authMessage.textContent = "Confirm your account before logging in.";
       setMode("confirm");
+      return;
     }
 
     if (mode === "signup") {
@@ -71,24 +72,28 @@ authForm?.addEventListener("submit", async (event) => {
       });
       authMessage.textContent = "Account created. Check your email for the confirmation code.";
       setMode("confirm");
+      return;
     }
 
     if (mode === "confirm") {
       await confirmSignUp({ username: email, confirmationCode: code });
       authMessage.textContent = "Account confirmed. You can login now.";
       setMode("login");
+      return;
     }
 
     if (mode === "forgot") {
       await resetPassword({ username: email });
       authMessage.textContent = "Reset code sent. Enter the code and your new password.";
       setMode("reset");
+      return;
     }
 
     if (mode === "reset") {
       await confirmResetPassword({ username: email, confirmationCode: code, newPassword: password });
       authMessage.textContent = "Password changed. You can login now.";
       setMode("login");
+      return;
     }
   } catch (error) {
     authMessage.textContent = error.message || "Something went wrong. Try again.";
