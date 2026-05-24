@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A simple static website ready to host on AWS.">
+    <title>Simple AWS Website</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#home" aria-label="Simple AWS Website home">
+        <span class="brand-mark">S</span>
+        <span>SimpleSite</span>
+      </a>
+
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main id="home">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Static website starter</p>
+          <h1>A clean website you can host on AWS today.</h1>
+          <p class="hero-text">
+            This is a simple responsive landing page made with HTML, CSS, and JavaScript.
+            Upload it to S3, connect CloudFront, or deploy it with AWS Amplify.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#contact">Get started</a>
+            <a class="button secondary" href="#features">View features</a>
+          </div>
+        </div>
+
+        <div class="hero-media">
+          <img src="hero-website.png" alt="Modern laptop showing a simple web dashboard">
+          <div class="hero-panel" aria-label="Website deployment checklist">
+            <div class="status-row">
+              <span class="status-dot"></span>
+              <span>Ready for static hosting</span>
+            </div>
+            <ul class="deploy-list">
+              <li>
+                <strong>1</strong>
+                <span>Upload files to an S3 bucket</span>
+              </li>
+              <li>
+                <strong>2</strong>
+                <span>Enable static website hosting</span>
+              </li>
+              <li>
+                <strong>3</strong>
+                <span>Add CloudFront for HTTPS and speed</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="features">
+        <div class="section-heading">
+          <p class="eyebrow">Features</p>
+          <h2>Everything needed for a normal small website.</h2>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card">
+            <h3>Responsive Layout</h3>
+            <p>Looks good on phones, tablets, and desktop screens without extra setup.</p>
+          </article>
+          <article class="feature-card">
+            <h3>No Build Step</h3>
+            <p>Plain files only. You can upload this folder directly to AWS.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Easy Editing</h3>
+            <p>Change text, colors, and sections in a few files whenever you need.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="split-section" id="pricing">
+        <div>
+          <p class="eyebrow">Simple plan</p>
+          <h2>Start small and keep hosting costs low.</h2>
+          <p>
+            Static sites on AWS can be inexpensive because there is no server to manage.
+            S3 stores the files, and CloudFront can deliver them globally.
+          </p>
+        </div>
+        <div class="price-box">
+          <span class="price-label">Example</span>
+          <div class="price">$0+</div>
+          <p>Depending on traffic, storage, domain, and AWS free tier eligibility.</p>
+        </div>
+      </section>
+
+      <section class="contact-section" id="contact">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2>Ready to customize it?</h2>
+          <p>Replace this section with your phone, email, business details, or a real contact form.</p>
+        </div>
+        <a class="button primary" href="mailto:hello@example.com">Email us</a>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>&copy; <span id="year"></span> SimpleSite. All rights reserved.</span>
+      <a href="#home">Back to top</a>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
